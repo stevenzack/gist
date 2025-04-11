@@ -55,3 +55,14 @@ jobs:
     - name: Deploy2
       run: ssh root@8.220.204.169 "(cd /root/apps/memo && mv ./bin/main ./bin/memo && ./bin/memo) &>/dev/null &"
 ```
+
+Upload 
+
+```sh
+sftp root@localhost:/var/www/ <<< $'put -r html'
+```
+
+Download
+```sh
+sftp root@8.220.204.169:/var/www/html/index.html index.html
+```
