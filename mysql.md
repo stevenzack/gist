@@ -34,6 +34,8 @@ mysql -u root -p
 Find your first temp password for root account
 ```sh
 grep 'temporary password' /var/log/mysqld.log
+mysql -u root -p
+>alter user 'root'@'localhost' identified by 'yourpassword';
 ```
 
 # Initialization
