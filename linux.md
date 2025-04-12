@@ -70,7 +70,9 @@ sftp root@8.220.204.169:/var/www/html/index.html index.html
 
 # fedora
 
-china mirror
+Better use Xfce4!!
+
+## china mirror
 ```sh
 sed -e 's|^metalink=|#metalink=|g' \
     -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g' \
@@ -81,4 +83,33 @@ sed -e 's|^metalink=|#metalink=|g' \
 
 Download Edge browser [https://packages.microsoft.com/yumrepos/edge/Packages/m/microsoft-edge-stable-135.0.3179.73-1.x86_64.rpm](https://packages.microsoft.com/yumrepos/edge/Packages/m/microsoft-edge-stable-135.0.3179.73-1.x86_64.rpm)
 
-Download VS Code rpm [https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm](https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm)
+Download VS Code rpm （Using wget would be better） [https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm](https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm)
+
+## Chinese Input Method
+
+```sh
+sudo dnf remove -y ibus
+sudo dnf install -y fcitx-table fcitx-gtk3 fcitx-table-chinese fcitx fcitx-data fcitx-configtool fcitx-pinyin
+```
+`vim ~/.bashrc`
+```bash
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
+
+`sudo vim /etc/profile.d/fcitx.sh`
+```sh
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
+
+now install default fcitx packages
+```sh
+sudo dnf install -y fcitx-{ui-light,qt{4,5},table,gtk{2,3},table-{extra,other,chinese},configtool}
+```
+
+add `fcitx` to your Xfce4 auto start options list.
+
+Start `fcitx` config a pinyin method, and done
