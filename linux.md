@@ -79,5 +79,6 @@ sed -e 's|^metalink=|#metalink=|g' \
     /etc/yum.repos.d/fedora-updates.repo
 ```
 
-Download Edge browser [link](https://packages.microsoft.com/yumrepos/edge/Packages/m/)
+Download Edge browser [https://packages.microsoft.com/yumrepos/edge/Packages/m/microsoft-edge-stable-135.0.3179.73-1.x86_64.rpm](https://packages.microsoft.com/yumrepos/edge/Packages/m/microsoft-edge-stable-135.0.3179.73-1.x86_64.rpm)
 
+Download VS Code rpm [https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm](https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.99.2-1744250112.el8.x86_64.rpm)
