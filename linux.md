@@ -87,6 +87,8 @@ Download VS Code rpm （Using wget would be better） [https://packages.microsof
 
 ## Chinese Input Method
 
+references: [https://blog.csdn.net/codestore/article/details/132255059](https://blog.csdn.net/codestore/article/details/132255059)
+
 ```sh
 sudo dnf remove -y ibus
 sudo dnf install -y fcitx-table fcitx-gtk3 fcitx-table-chinese fcitx fcitx-data fcitx-configtool fcitx-pinyin
