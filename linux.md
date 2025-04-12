@@ -2,6 +2,7 @@
 
 - [ssh](#ssh)
 - [fedora](#fedora)
+- [wireguard](#wireguard)
 
 # ssh
 
@@ -115,3 +116,16 @@ sudo dnf install -y fcitx-{ui-light,qt{4,5},table,gtk{2,3},table-{extra,other,ch
 add `fcitx` to your Xfce4 auto start options list.
 
 Start `fcitx` config a pinyin method, and done
+
+# wireguard
+
+On fedora
+```sh
+sudo dnf update -y
+sudo dnf install wireguard-tools -y
+sudo modprob wireguard
+sudo tee /etc/modules-load.d/wireguard.conf <<< "wireguard"
+```
+```sh
+wg-quick up client
+```
