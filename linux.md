@@ -1,6 +1,7 @@
 # Index
 
 - [ssh](#ssh)
+- [fedora](#fedora)
 
 # ssh
 
@@ -66,3 +67,17 @@ Download
 ```sh
 sftp root@8.220.204.169:/var/www/html/index.html index.html
 ```
+
+# fedora
+
+china mirror
+```sh
+sed -e 's|^metalink=|#metalink=|g' \
+    -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g' \
+    -i.bak \
+    /etc/yum.repos.d/fedora.repo \
+    /etc/yum.repos.d/fedora-updates.repo
+```
+
+Download Edge browser [link](https://packages.microsoft.com/yumrepos/edge/Packages/m/)
+
