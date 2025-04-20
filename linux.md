@@ -3,6 +3,7 @@
 - [ssh](#ssh)
 - [fedora](#fedora)
 - [wireguard](#wireguard)
+- [webdav rclone](#webdav-rclone)
 
 # ssh
 
@@ -128,4 +129,46 @@ sudo tee /etc/modules-load.d/wireguard.conf <<< "wireguard"
 ```
 ```sh
 wg-quick up client
+```
+
+# webdav rclone
+
+rclone
+```sh
+sudo dnf install rclone rclone-fuse
+rclone config
+```
+
+
+```sh
+mkdir -p ~/.config/systemd/user/
+vim ~/.config/systemd/user/rclone-webdav.service
+```
+
+`rclone-webdav.service`
+```service
+[Unit]
+Description=Rclone WebDAV Mount (User Mode)
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount jianguoyun:/ /home/asd/nutstore \
+    --vfs-cache-mode full \
+    --allow-other \
+    --no-modtime \
+    --umask 000 \
+    --dir-cache-time 5m
+ExecStop=/bin/fusermount -u /home/asd/nutstore
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+```
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable rclone-webdav.service
+systemctl --user start rclone-webdav.service
 ```
